@@ -1,12 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import App from './App'
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// div  jsx  
+// React.createElement('div',null,'hello world');
+let box = <div>hello world </div>
+
+
+// 函数式组件
+let Box = function({title}){
+    return <h1> 你好,长沙  {title}</h1>
+}
+let Profile = ({day}) => <div> 明天{day} </div>
+
+
+// 类组件
+class Person extends React.Component{
+    render(){
+        return  <div> {this.props.name} </div>
+    }
+}
+
+ReactDOM.render(<App/>, document.getElementById('root'));
+
