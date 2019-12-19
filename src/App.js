@@ -1,17 +1,27 @@
-import React,{Fragment} from 'react';
-
+import React from 'react';
 import './App.css';
+import store  from './store'
 
-import Header from './components/Header'
-import List from './components/List'
+import {Provider} from 'react-redux'
+import Counter from './components/Counter'
+
+
+import Cart from './components/Cart'
+import {Container} from './connect.js'
+
+// 这一部分使用connect.js
+let c = <Container  store={store}>
+            <Cart/>
+        </Container>
+
+// 这一部分使用react-redux
+let p = <Provider store={store}>
+            <Counter/>
+        </Provider>
 
 function App() {
   return (
-    <Fragment>
-      <Header title="QQ"/>
-      <List/>
-    </Fragment>
-   
+  <div>{c}</div>
   );
 }
 
