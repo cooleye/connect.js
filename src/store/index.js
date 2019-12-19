@@ -1,6 +1,14 @@
 
-import {createStore} from 'redux'
+// import {createStore} from 'redux'
+
+import {createStore} from '../myredux'
+
 import reducer from './reducer'
-const store = createStore(reducer)
+
+const initialState = {
+    counter:0,
+    title:'nihao'
+}
+const store = createStore(reducer,initialState)
 
 export default store;

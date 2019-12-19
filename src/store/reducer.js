@@ -1,12 +1,12 @@
 
 const initialState = {
-    counter:100,
+    counter:0,
     title:'nihao'
 }
 
 export default (state,action) =>{
-    // console.log('reducer:',state,action)
-    if(state == undefined || state == null){
+
+    if(state == null){
         return initialState;
     }
 
@@ -14,14 +14,15 @@ export default (state,action) =>{
         case "INCREASE" : 
                 var counter = state.counter;
                 counter = counter + action.num;
-                return {counter};
+                return {...state,counter};
         case "DECREASE" : 
                 var counter = state.counter;
                 counter = counter - action.num;
-                return {counter};
+                return {...state,counter};
 
         case "UPDATE_TITLE" :
                return {...state,title: state.title + "@"}
+
         default: return state;
     }
 }
